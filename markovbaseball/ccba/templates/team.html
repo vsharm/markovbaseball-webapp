@@ -117,7 +117,15 @@
   margin-right: auto;
   margin-left: auto;
   position:relative;
-}        
+}
+
+.runsPerStateContainer{
+  height: 130px;
+}
+.runsPerState{
+  height:190px;
+  overflow-x:auto;
+}
 </style>
 </head>
 <body>
@@ -187,8 +195,9 @@
                                                 </tr>
                                         </table>
                                 </div>
-                                <div class="panelBox panelColor4">
+                                <div class="runsPerStateContainer panelBox panelColor4">
                                 <h2>EX Runs per State</h2>
+                                <div class="runsPerState">
                                 <table>
                                         <tr>
                                                 <td>Out_Base</td>
@@ -203,6 +212,7 @@
                                                 {% endfor %}
                                         </tr>
                                 </table>
+				</div>
                                 </div>
                                 <div class="panelBox panelColor3"><h2>Bunting</h2>
                                 <table>

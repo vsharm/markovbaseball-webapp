@@ -1,6 +1,10 @@
 body{
   margin-bottom: 0px;
-width:100%;
+margin: 0;
+padding: 0;
+border: 0;
+outline: 0;
+background: transparent;
 }
 
 
@@ -42,6 +46,7 @@ width: 100%;
 margin-left: -8px; 
 box-shadow: 0 0 5px rgba(0,0,0,0.5);
 background-color:#222;
+height: 64px;
 }
 .logoName{
         margin-bottom: 8px;
@@ -102,8 +107,6 @@ nav .menu_link{
 
 .body{
   margin-top: 64px;
-margin-left: -8px;
-width:100%;
 }
 
 .header:first-child{

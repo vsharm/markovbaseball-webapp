@@ -74,6 +74,15 @@
   padding-bottom:1px;
   padding-top:1px;
 }
+.github{
+  background-color:#222;
+  padding: 0px;
+}
+.github > p > a{
+  text-decoration: none;
+  color:darkgray;
+}
+
 .text-tooltip{
   color:#dfdfdf;
   font-size:20px;
@@ -166,6 +175,7 @@ fill: #ddd !important;
 <h2>Flaws</h2>
 <p>This is a simplistic model, it only incorporates 7 different plays singles, doubles, triples, home runs, walks, and outs. It does not include the probabilities of a stolen bases, sac flies, wild pitches, and errors into the transition matrix. That doesn’t mean its not useful though, it covers the vast majority of plays and still generates a fairly accurate distribution of baseball run scoring.</p>
 </div>
+<div class="panelBox github"><p><a href="https://github.com/vsharm/markovbaseball-webapp">See my project on GitHub</a></p></div>
 </body>
 <script src="{% static "./d3.js" %}" charset="utf-8"></script>
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
