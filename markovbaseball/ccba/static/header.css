@@ -1,0 +1,111 @@
+body{
+  margin-bottom: 0px;
+width:100%;
+}
+
+
+.link {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+#licensing {
+  fill: green;
+}
+
+.link.licensing {
+  stroke: green;
+}
+
+.link.resolved {
+  stroke-dasharray: 0,2 1;
+}
+
+circle {
+  fill: #03779f;
+ 
+  stroke-width: 3px;
+}
+
+text {
+  font: 12px sans-serif;
+  pointer-events: none;
+}
+
+.header{
+border-width: 2px; 
+top: 0;
+display: inline; 
+position: fixed; 
+width: 100%; 
+margin-left: -8px; 
+box-shadow: 0 0 5px rgba(0,0,0,0.5);
+background-color:#222;
+}
+.logoName{
+        margin-bottom: 8px;
+        margin-left: 10px;
+}
+
+.teams_button{
+font-family: sans-serif;
+float: right;
+margin-right: 100px;
+font-size: 23px;
+width: 147px;
+color:#aaa;
+margin-bottom:-8px;
+margin-top:-4px;
+}
+
+nav ul li {
+  display: block;
+  position: relative;
+  margin-left:-35px;
+}
+nav li ul {
+  display: none;
+  border-width: 1px;
+  border-color: lightgray;
+  border-style: solid;
+  background-color: lightgray;
+}
+.team a{
+  padding-left:3px;
+}
+
+.team:hover{
+  background-color:#d9534f;
+  color:#fff;
+}
+
+
+nav li:hover ul {
+  display: block;
+  position: absolute;
+  width:100px;
+  float:left;
+}
+
+nav .menu_item{
+  font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+nav .menu_link{
+  color:black;
+  text-decoration: none;    
+
+}
+
+.body{
+  margin-top: 64px;
+margin-left: -8px;
+width:100%;
+}
+
+.header:first-child{
+  padding-left:35px;
+}

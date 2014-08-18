@@ -1,0 +1,348 @@
+<!d>
+{% load staticfiles %}
+<script src="{% static "./header.js" %}"/></script>
+
+       <head>
+		<title>{{team}}</title>
+		<script src="{% static "./Chart.js" %}"/></script>
+		<script src="{% static "./graph.js" %}"/></script>
+<link rel="stylesheet" type="text/css" href="{% static "./header.css"%}">
+<style>
+#initPanel{
+  height:769px;
+  background-image: url({% static "./darkbargraph.png" %});
+  background-position: 50% 0px;
+}
+#textPanel{
+  text-align:center;
+  font-family:sans-serif;
+}
+#centerPanel{
+  overflow: hidden;
+  height: 15px;
+  vertical-align: baseline;
+}
+#markov{
+  font-size: 56px;
+}
+#baseball{
+  font-size: 38px;
+  margin-top: -53px;
+  margin-bottom: 0px;
+}
+#image{
+  margin-right: -28px;
+}
+.panelBox{
+  font-family: sans-serif;
+  position: relative;
+  padding: 30px 15px;
+  color: #ddd;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0,0,0,.1);
+  background-repeat: repeat-x;
+  overflow:hidden;
+  text-shadow:1px 1px #000;
+  overflow:hidden;
+}
+.panelBox table{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.panelBox table td{
+  color:#dfdfdf;
+}
+.panelBox a{
+  text-decoration:none;
+  color:inherit;
+  padding:10px;
+  font-size:18px;
+}
+.panelColor1{
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#563d7c),to(#6f5499));
+  background-image: -webkit-linear-gradient(top,#563d7c 0,#6f5499 100%);
+  background-image: -o-linear-gradient(top,#563d7c 0,#6f5499 100%);
+  background-image: linear-gradient(to bottom,#428BD3 0,#428bca 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#563d7c', endColorstr='#6F5499', GradientType=0);
+}
+.panelColor2{
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#563d7c),to(#6f5499));
+  background-image: -webkit-linear-gradient(top,#563d7c 0,#6f5499 100%);
+  background-image: -o-linear-gradient(top,#563d7c 0,#6f5499 100%);
+  background-image: linear-gradient(to bottom,#563d7c 0,#6f5499 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#563d7c', endColorstr='#6F5499', GradientType=0);
+}
+.panelColor3{
+  background-color:darkslategrey;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#5bbb5e0),to(#54a854));
+  background-image: -webkit-linear-gradient(top,#5bbb5e0 0,#54a854 100%);
+  background-image: -o-linear-gradient(top,#5bbb5e0 0,#54a854 100%);
+  background-image: linear-gradient(to bottom,#5bbb5e0 0,#54a854 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5bbb5e0', endColorstr='#54a854', GradientType=0);
+}
+.panelColor4{
+  background-color:#d9534f;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#5bbb5e0),to(#d9534f));
+  background-image: -webkit-linear-gradient(top,#5bbb5e0 0,#d9534f 100%);
+  background-image: -o-linear-gradient(top,#5bbb5e0 0,#d9534f 100%);
+  background-image: linear-gradient(to bottom,#5bbb5e0 0,#d9534f 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5bbb5e0', endColorstr='#d9534f', GradientType=0);
+}
+.panelColor5{
+  background-color:lightslategray;
+}
+.panelColor6{
+  background-color:#428bca;
+  padding-bottom:1px;
+  padding-top:1px;
+}
+.text-tooltip{
+  color:#dfdfdf;
+  font-size:20px;
+  background-color:black;
+  font-family:sans-serif;
+  padding-left:5px;
+  padding-right:5px;
+  border:1px;
+  border-radius: 2px;
+}
+ .white {
+    fill: #dfdfdf;
+    font-size:14px;
+ }
+
+.graph-position{
+  width:55%;
+  margin-right: auto;
+  margin-left: auto;
+  position:relative;
+}        
+</style>
+</head>
+<body>
+<div class="header" style="z-index:100;">
+               <a href="/"><img src="{% static "./logo.png" %}" height="60"/></img></a>
+               <a href="/"><img href="/team" class = "logoName" src="{% static "./title.png" %}" height="40"/></img></a>
+
+<nav class="teams_button" style="z-index:8;">
+        <ul>
+                <li class="team">
+                        <a onclick="x()">Teams<span class="caret"></span></a>
+			<div>
+                                <ul>
+                                {% for team in  teams%}
+                                        <li class="menu_item"> <a class="menu_link"  href="/team/{{team}}">{{team}}</a></li>
+                                {% endfor %}
+                                </ul>
+                        </div>
+                </li>
+        </ul>
+</div>
+		<div class="body">
+				<div class="panelBox panelColor1"><h2>EX Runs Per Game: {{m_total_runs_game}}</h2></div>
+                                <div class="panelBox panelColor5"><h2>Team per Year</h2>
+					{% for data in years%}
+						<a href="/team/{{team}}/{{data}}">{{data}}</a>
+					{% endfor %}
+				</div>
+				<div class="panelBox panelColor2">
+                                        <h2>Team Stat Line</h2>
+                                        <table>
+                                                <tr>
+                                                <td>AB</td>
+                                                <td>PA</td>
+                                                <td>Hits</td>
+                                                <td>1b</td>
+                                                <td>2b</td>
+                                                <td>3b</td>
+                                                <td>HR</td>
+                                                <td>BB</td>
+                                                <td>BB%</td>
+                                                <td>HBP</td>
+                                                <td>SB</td>
+                                                <td>CS</td>
+                                                <td>SB%</td>
+                                                <td>AVG</td>
+                                                <td>OBP</td>
+                                                <td>SLG</td>
+                                                </tr>
+                                                <tr>
+                                                <td>{{stat_totals.ab}}</td>
+                                                <td>{{stat_totals.pa}}</td>
+                                                <td>{{stat_totals.hits}}</td>
+                                                <td>{{stat_totals.singles}}</td>
+                                                <td>{{stat_totals.doubles}}</td>
+                                                <td>{{stat_totals.triples}}</td>
+                                                <td>{{stat_totals.hr}}</td>
+                                                <td>{{stat_totals.bb}}</td>
+                                                <td>{{stat_totals.bb_percent}}</td>
+                                                <td>{{stat_totals.hbp}}</td>
+                                                <td>{{stat_totals.sb}}</td>
+                                                <td>{{stat_totals.cs}}</td>
+                                                <td>{{stat_totals.sb_success}}</td>
+                                                <td>{{stat_totals.avg}}</td>
+                                                <td>{{stat_totals.obp}}</td>
+                                                <td>{{stat_totals.slg}}</td>
+                                                </tr>
+                                        </table>
+                                </div>
+                                <div class="panelBox panelColor4">
+                                <h2>EX Runs per State</h2>
+                                <table>
+                                        <tr>
+                                                <td>Out_Base</td>
+                                                {% for data in m_state_runs %}
+                                                        <td title="{{data.stateDescription}}"> {{data.state}} </td>
+                                                {% endfor %}
+                                        </tr>
+                                        <tr>
+                                                <td>EX Runs</td>
+                                                {% for data in m_state_runs %}
+                                                        <td> {{data.ex_runs}} </td>
+                                                {% endfor %}
+                                        </tr>
+                                </table>
+                                </div>
+                                <div class="panelBox panelColor3"><h2>Bunting</h2>
+                                <table>
+                                        <tr>
+                                                <td>Out_Base</td>
+                                                <td>From</td>
+                                                {% for data in m_bunting_runs %}
+                                                        <td title="{{data.pre_description}}"> {{data.pre_state}}</td>
+                                                {% endfor %}
+                                        </tr>
+                                        <tr>
+                                                <td>Out_Base</td>
+                                                <td>To</td>
+                                                {% for data in m_bunting_runs %}
+                                                        <td title="{{data.post_description}}"> {{data.post_state}} </td>
+                                                {% endfor %}
+                                        </tr>
+                                        <tr>
+                                                <td>EX Runs</td>
+                                                <td>From</td>
+                                                {% for data in m_bunting_runs %}
+                                                        <td> {{data.pre_expected_runs}} </td>
+                                                {% endfor %}
+                                        </tr>
+                                        <tr>
+                                                <td>EX Runs</td>
+                                                <td>To</td>
+                                                {% for data in m_bunting_runs %}
+                                                        <td id="{{data.decision}}" > {{data.post_expected_runs}} </td>
+                                                {% endfor %}
+                                        </tr>
+                                </table>
+                                </div>
+                                <div class="panelBox panelColor5"><h2>Base Stealing</h2>
+                                <table>
+                                        <tr>
+                                                <td>Out_Base</td>
+                                                <td>From</td>
+                                                {% for data in m_steals_runs %}
+                                                        <td title="{{data.pre_description}}"> {{data.pre_state}} </td>
+                                                {% endfor %}
+                                        </tr>
+                                        <tr>
+                                                <td>Out_Base</td>
+                                                <td>To</td>
+                                                {% for data in m_steals_runs %}
+                                                        <td title="{{data.post_description}}"> {{data.post_state}} </td>
+                                                {% endfor %}
+                                        </tr>
+                                        <tr>
+                                                <td>EX Runs</td>
+                                                <td>From</td>
+                                                {% for data in m_steals_runs %}
+                                                        <td> {{data.pre_expected_runs}} </td>
+                                                {% endfor %}
+                                        </tr>
+                                        <tr>
+                                                <td>EX Runs</td>
+                                                <td>To</td>
+                                                {% for data in m_steals_runs %}
+                                                        <td id="{{data.decision}}"> {{data.post_expected_runs}} </td>
+                                                {% endfor %}
+                                        </tr>
+                                </table>
+                                </div>
+				<div class="panelBox panelColor1"><div class="graph-position"><h2>Batting Average</h2><canvas id="avg-graph" height="450" width="600"></canvas></div></div>
+				<div class="panelBox panelColor2"><div class="graph-position"><h2>On Base %</h2><canvas id="obp-graph" height="450" width="600"></canvas></div></div>
+				<div class="panelBox panelColor3"><div class="graph-position"><h2>Slugging %</h2><canvas id="slg-graph" height="450" width="600"></canvas></div></div>
+				<div class="panelBox panelColor5"><div class="graph-position"><h2>Stolen Base %</h2><canvas id="sb_success-graph" height="450" width="600"></canvas></div></div>
+				<div class="panelBox panelColor6"><div class="graph-position"><h2>Walk %</h2><canvas id="bb_percent-graph" height="450" width="600"></canvas></div></div>
+				<div class="panelBox panelColor2"><div class="graph-position"><h2>EX Runs Per State</h2><canvas id="m_state_runs-graph" height="450" width="600"></canvas></div></div>
+				<div class="panelBox panelColor3"><div class="graph-position"><h2>Expected Runs Pre Steal/Expected Runs of Steal Attempt</h2><canvas id="m_steals_runs-graph" height="450" width="600"></canvas></div></div>
+				<div class="panelBox panelColor5"><div class="graph-position"><h2>Expected Runs Pre Bunt/Expected Runs after Bunt</h2><canvas id="m_bunting_runs-graph" height="450" width="600"></canvas></div></div>
+				
+		</div>
+
+
+	<script>
+	var yearsList = {{years|safe}};
+        var graphData = {"avg":[
+                                {% for data in stats %}
+                                   {{ data.avg|safe }},
+                                {% endfor %}]
+                        ,"obp":[
+                                {% for data in stats %}
+                                   {{ data.obp|safe }},
+                                {% endfor %}]
+                        ,"slg":[
+                                {% for data in stats %}
+                                   {{ data.slg|safe }},
+                                {% endfor %}]
+                        ,"sb_success":[
+                                {% for data in stats %}
+                                   {{ data.sb_success|safe }},
+                                {% endfor %}]
+                        ,"bb_percent":[
+                                {% for data in stats %}
+                                   {{ data.bb_percent|safe }},
+                                {% endfor %}]
+                        ,"m_bunting_runs_pre":[
+                                {% for data in m_bunting_runs %}
+                                   {{ data.pre_expected_runs|safe }},
+                                {% endfor %}]
+                        ,"m_steals_runs_pre":[
+                                {% for data in m_steals_runs %}
+                                   {{ data.pre_expected_runs|safe }},
+                                {% endfor %}]
+                        ,"m_bunting_runs_post":[
+                                {% for data in m_bunting_runs %}
+                                   {{ data.post_expected_runs|safe }},
+                                {% endfor %}]
+                        ,"m_steals_runs_post":[
+                                {% for data in m_steals_runs %}
+                                   {{ data.post_expected_runs|safe }},
+                                {% endfor %}]
+                        ,"m_steals_runs_descriptions":[
+                                {% for data in m_steals_runs %}
+                                   "{{ data.pre_description|safe }}",
+                                {% endfor %}]
+                        ,"m_bunting_runs_descriptions":[
+                                {% for data in m_bunting_runs %}
+                                   "{{ data.pre_description|safe }}",
+                                {% endfor %}]
+                        ,"ex_runs":[
+                                {% for data in m_state_runs %}
+                                    {{ data.ex_runs|safe }},
+                                {% endfor %}]
+                        ,"ex_runs_descriptions":[
+                                {% for data in m_state_runs %}
+                                    "{{ data.stateDescription|safe }}",
+                                {% endfor %}]
+               }; 
+
+ 
+    graph(yearsList,graphData);
+var teamsHeader = true;
+function x(){
+  headerbutton(teamsHeader);
+  teamsHeader = !teamsHeader;
+}
+	</script>
+	</body>
+</html>
