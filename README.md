@@ -1,6 +1,5 @@
 MarkovBaseball-webapp
 =====================
-![alt tag](http://cl.ly/XGLw/download/Screen%20Shot%202014-08-27%20at%2011.57.27%20PM.png)
 
 Overview
 =====================
@@ -9,3 +8,12 @@ This is an application designed to demonstrate the application of markov chains 
 The webapp is built using Django. The webserver is gunicorn with nginx to serve the static assets. 
 
 All of the graphs on the home page were created using the D3 javascript library, and all the graphs for the team pages were created using the chart.js library.
+
+![alt tag](http://cl.ly/XGLw/download/Screen%20Shot%202014-08-27%20at%2011.57.27%20PM.png)
+
+How to Run
+=====================
+
+Scrapy
+--------------
+All of the scrapy files are located in the directory [a link](https://github.com/vsharm/markovbaseball-webapp/tree/master/markov_baseball). To run scrapy cd into the [a link](https://github.com/vsharm/markovbaseball-webapp/tree/master/markov_baseball) and run ```unix scrapy crawl ccba -o ccba.json -t json```. To Sort that data run ```unix python sort.py```
