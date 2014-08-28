@@ -1,7 +1,7 @@
 MarkovBaseball-webapp
 =====================
 
-<div style="text-align:center"><img src ="http://cl.ly/XGLw/download/Screen%20Shot%202014-08-27%20at%2011.57.27%20PM.png" height="500" />Home Page</div>
+<div style="text-align:center"><img src ="http://cl.ly/XGLw/download/Screen%20Shot%202014-08-27%20at%2011.57.27%20PM.png" height="500" /></div>
 
 
 Overview
