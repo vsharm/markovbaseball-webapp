@@ -16,4 +16,16 @@ How to Run
 
 Scrapy
 --------------
-All of the scrapy files are located in the directory [a link](https://github.com/vsharm/markovbaseball-webapp/tree/master/markov_baseball). To run scrapy cd into the [a link](https://github.com/vsharm/markovbaseball-webapp/tree/master/markov_baseball) and run ```unix scrapy crawl ccba -o ccba.json -t json```. To Sort that data run ```unix python sort.py```
+All of the scrapy files are located in the directory [markov_baseball](https://github.com/vsharm/markovbaseball-webapp/tree/master/markov_baseball). 
+
+To run scrapy cd into [markov_baseball](https://github.com/vsharm/markovbaseball-webapp/tree/master/markov_baseball) and run ```scrapy crawl ccba -o ccba.json -t json```. To sort that data run ```python sort.py```.
+
+Django
+--------------
+All of the Django Files are located in the directory [markovbaseball](https://github.com/vsharm/markovbaseball-webapp/tree/master/markovbaseball). 
+
+To run the Django development server cd into [markovbaseball](https://github.com/vsharm/markovbaseball-webapp/tree/master/markovbaseball) and run ```python manage.py runserver 0.0.0.0:[port#]```
+
+Math
+--------------
+The two main mathematical files are 
