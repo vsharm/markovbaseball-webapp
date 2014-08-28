@@ -9,7 +9,8 @@ The webapp is built using Django. The webserver is gunicorn with nginx to serve 
 
 All of the graphs on the home page were created using the D3 javascript library, and all the graphs for the team pages were created using the chart.js library.
 
-![alt tag](http://cl.ly/XGLw/download/Screen%20Shot%202014-08-27%20at%2011.57.27%20PM.png)
+
+<div style="text-align:center"><img src ="http://cl.ly/XGLw/download/Screen%20Shot%202014-08-27%20at%2011.57.27%20PM.png" height="500" /></div>
 
 How to Run
 =====================
