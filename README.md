@@ -36,5 +36,7 @@ The two main mathematical files are [markov_calculator.py](https://github.com/vs
 Thanks
 =====================
 Jimmy Gardner - The baseball player and Peer who was a key to the mathematics of this project.
+
 [Abhinav Kalakuntla](https://github.com/abhikalakuntla) - For helping me get this website live
+
 Yunxiao Liu - The graduate student who taught me markov chains in depth 1:1 in the UCSD GULP Program
