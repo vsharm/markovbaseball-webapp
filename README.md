@@ -36,6 +36,7 @@ The two main mathematical files are [markov_calculator.py](https://github.com/vs
 Thanks
 =====================
 Jimmy Gardner - The baseball player and peer who was a key to the mathematics of this project.
+Subha Rengarajan - Assisted with the understanding of much of the math in this project.  
 
 [Abhinav Kalakuntla](https://github.com/abhikalakuntla) - For helping me get this website live
 
